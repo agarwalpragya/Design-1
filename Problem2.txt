@@ -1,0 +1,56 @@
+class MyHashMap:
+
+    def __init__(self):
+        # self.size=1000000
+        # self.table=[None]*self.size
+        self.ar1 = []
+        self.ar2 = []
+        
+    def put(self, key: int, value: int) -> None:
+        # hashvalue=key%self.size
+        # if self.table[hashvalue]!=None:
+        #     self.table[hashvalue].append(key)
+        # else:
+        #     self.table[hashvalue]=[key]
+        if key in self.ar1:
+            i = self.ar1.index(key)
+            self.ar2[i]=value
+        else:
+            self.ar1.append(key)
+            self.ar2.append(value)
+        return 
+
+    def get(self, key: int) -> int:
+        # hashvalue=key%self.size
+        # if self.table[hashvalue]!=None and key in self.table[hashvalue]:
+        #     return 1
+        # else:
+        #     return -1
+        # print(self.ar1,self.ar2)
+        if key in self.ar1:
+            i = self.ar1.index(key)
+            return self.ar2[i]
+        else:
+            return -1
+
+        
+    def remove(self, key: int) -> None:
+        # hashvalue=key%self.size
+        # if self.table[hashvalue]!=None:
+        #     while key in self.table[hashvalue]:
+        #         self.table[hashvalue].remove(key)
+        if key in self.ar1:
+            i = self.ar1.index(key)
+            # print(i)
+            del self.ar1[i]
+            del self.ar2[i]
+        return
+            
+        
+
+
+# Your MyHashMap object will be instantiated and called as such:
+# obj = MyHashMap()
+# obj.put(key,value)
+# param_2 = obj.get(key)
+# obj.remove(key)
